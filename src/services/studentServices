@@ -1,0 +1,27 @@
+import axios from "axios";
+
+const API_URL = "http://localhost:8080/students";
+
+export const getStudents = async () => {
+  return await axios.get(API_URL);
+};
+
+export const getStudentById = async (rollNumber) => {
+  return await axios.get(`${API_URL}/${rollNumber}`);
+};
+
+export const addStudent = async (student) => {
+  return await axios.post(API_URL, student);
+};
+
+export const addStudents = async (students) => {
+  return await axios.post(`${API_URL}/bulk`, students);
+};
+
+export const editStudent = async (rollNumber, student) => {
+  return await axios.put(`${API_URL}/${rollNumber}`, student);
+};
+
+export const deleteStudent = async (rollNumber) => {
+  return await axios.delete(`${API_URL}/${rollNumber}`);
+};
